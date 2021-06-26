@@ -54,4 +54,44 @@ public class Spawn : MonoBehaviour
             //Aquí sería Aldeanos[i].transform.position = this.posSpawn[i]
         }
     }
+
+
+    //Obtiene un numero de distritos, un array de poblacion por distrito, unas coordenadas de spawnpoints, un numero de spawnpoints por distrito y un array de villagers (indica que spawnpoint usan)
+    //Devuelve tanto un array de posiciones, como un array de enteros correspondientes al ID del spawnpoint de cada aldeano
+    private int[] generarArrayCoord(int district, int[] population, Vector3[] spawnpoints, int[] spawnpoints_per_district, int [] spawnpoint_of_villager)   //En principio hay 7 distritos, X poblacion por distrito (10?), X spawnpoints por distrito (2-5?) y tantos spawnpoints_of_villager como villagers haya
+    {
+                                    //---------------------Parte que devuelve vec3--------------//
+        int pop = 0;
+        for(int i= 0; i < district; i++)
+        {
+            pop += population[district];
+        }
+        Vector3[] final_spawnpoints = new Vector3[pop];
+                                    //---------------------Parte que devuelve vec3--------------//
+
+        int aux = 0;
+        int villagerAct = 0;
+        for (int i = 0; i < district; i++)
+        {
+            for(int j = 0; j < population[i]; j++)
+            {
+                float r = Random.Range(aux, spawnpoints_per_district[i]);
+                Mathf.Round(r);
+
+                                    //---------------------Parte que devuelve vec3--------------//
+                final_spawnpoints[villagerAct] = spawnpoints[(int)r];
+                                    //---------------------Parte que devuelve vec3--------------//
+
+                                    //---------------------Parte que devuelve ID--------------//
+                spawnpoint_of_villager[villagerAct] = (int) r;
+                                    //---------------------Parte que devuelve ID--------------//
+
+            }
+            aux += spawnpoints_per_district[i];
+        }
+
+        return spawnpoint_of_villager;
+    }
+
+
 }
