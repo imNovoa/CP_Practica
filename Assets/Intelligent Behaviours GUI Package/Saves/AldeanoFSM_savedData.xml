@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<XMLElement xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>4643f4e1-ab53-49a2-8a87-c8bb58a5b8ba</Id>
+  <elemType>FSM</elemType>
+  <secondType />
+  <thirdType />
+  <fourthType />
+  <name>AldeanoFSM</name>
+  <windowPosX>205</windowPosX>
+  <windowPosY>151</windowPosY>
+  <nodes>
+    <XMLElement>
+      <Id>370d5371-6010-48eb-bc94-e69f122ccbda</Id>
+      <elemType>StateNode</elemType>
+      <secondType>Entry</secondType>
+      <thirdType />
+      <fourthType />
+      <name>Parado</name>
+      <windowPosX>96</windowPosX>
+      <windowPosY>296</windowPosY>
+      <isRandom>false</isRandom>
+      <isInfinite>false</isInfinite>
+      <delayTime>0</delayTime>
+      <Nloops>0</Nloops>
+      <index>0</index>
+      <variableMin>0</variableMin>
+      <variableMax>0</variableMax>
+      <slope>0</slope>
+      <exp>0</exp>
+      <displX>0</displX>
+      <displY>0</displY>
+      <weight>0</weight>
+      <isExit>false</isExit>
+    </XMLElement>
+    <XMLElement>
+      <Id>aa052811-0e9d-4c6d-aebb-8f1e9c3a24b3</Id>
+      <elemType>StateNode</elemType>
+      <secondType>Default</secondType>
+      <thirdType />
+      <fourthType />
+      <name>Buscando</name>
+      <windowPosX>526</windowPosX>
+      <windowPosY>135</windowPosY>
+      <isRandom>false</isRandom>
+      <isInfinite>false</isInfinite>
+      <delayTime>0</delayTime>
+      <Nloops>0</Nloops>
+      <index>0</index>
+      <variableMin>0</variableMin>
+      <variableMax>0</variableMax>
+      <slope>0</slope>
+      <exp>0</exp>
+      <displX>0</displX>
+      <displY>0</displY>
+      <weight>0</weight>
+      <isExit>false</isExit>
+    </XMLElement>
+    <XMLElement>
+      <Id>159b3de3-e743-49ff-9ef4-fbf2374546aa</Id>
+      <elemType>StateNode</elemType>
+      <secondType>Default</secondType>
+      <thirdType />
+      <fourthType />
+      <name>Avanzando</name>
+      <windowPosX>1045</windowPosX>
+      <windowPosY>295</windowPosY>
+      <isRandom>false</isRandom>
+      <isInfinite>false</isInfinite>
+      <delayTime>0</delayTime>
+      <Nloops>0</Nloops>
+      <index>0</index>
+      <variableMin>0</variableMin>
+      <variableMax>0</variableMax>
+      <slope>0</slope>
+      <exp>0</exp>
+      <displX>0</displX>
+      <displY>0</displY>
+      <weight>0</weight>
+      <isExit>false</isExit>
+    </XMLElement>
+  </nodes>
+  <transitions>
+    <XMLElement>
+      <Id>ed8af403-def3-4e36-a7e6-ea0cb34bee8a</Id>
+      <elemType>TransitionGUI</elemType>
+      <secondType />
+      <thirdType />
+      <fourthType />
+      <name>Parado_B
+uscando</name>
+      <windowPosX>306</windowPosX>
+      <windowPosY>232</windowPosY>
+      <isRandom>false</isRandom>
+      <isInfinite>false</isInfinite>
+      <delayTime>0</delayTime>
+      <Nloops>0</Nloops>
+      <index>0</index>
+      <variableMin>0</variableMin>
+      <variableMax>0</variableMax>
+      <slope>0</slope>
+      <exp>0</exp>
+      <displX>0</displX>
+      <displY>0</displY>
+      <fromId>370d5371-6010-48eb-bc94-e69f122ccbda</fromId>
+      <toId>aa052811-0e9d-4c6d-aebb-8f1e9c3a24b3</toId>
+      <perception>
+        <Id>409ff21a-9416-4d55-a2a8-9e6f54c44293</Id>
+        <type>IsInState</type>
+        <timerNumber>0</timerNumber>
+        <elemName>AldeanoFSM</elemName>
+        <customName>CustomName</customName>
+        <stateName>Parado</stateName>
+        <status>Succeed</status>
+        <openFoldout>true</openFoldout>
+      </perception>
+      <weight>1</weight>
+      <isExit>false</isExit>
+    </XMLElement>
+    <XMLElement>
+      <Id>425805b4-04ff-44ed-9fc5-31ae90e273db</Id>
+      <elemType>TransitionGUI</elemType>
+      <secondType />
+      <thirdType />
+      <fourthType />
+      <name>Buscando_Avanzando</name>
+      <windowPosX>780.5</windowPosX>
+      <windowPosY>231.5</windowPosY>
+      <isRandom>false</isRandom>
+      <isInfinite>false</isInfinite>
+      <delayTime>0</delayTime>
+      <Nloops>0</Nloops>
+      <index>0</index>
+      <variableMin>0</variableMin>
+      <variableMax>0</variableMax>
+      <slope>0</slope>
+      <exp>0</exp>
+      <displX>0</displX>
+      <displY>0</displY>
+      <fromId>aa052811-0e9d-4c6d-aebb-8f1e9c3a24b3</fromId>
+      <toId>159b3de3-e743-49ff-9ef4-fbf2374546aa</toId>
+      <perception>
+        <Id>8a7ebe6e-2b77-47dc-befd-23d766f277ea</Id>
+        <type>Push</type>
+        <timerNumber>0</timerNumber>
+        <elemName />
+        <customName>CustomName</customName>
+        <stateName>Select a State</stateName>
+        <status>Succeed</status>
+        <openFoldout>true</openFoldout>
+      </perception>
+      <weight>1</weight>
+      <isExit>false</isExit>
+    </XMLElement>
+    <XMLElement>
+      <Id>486f5e9b-87a0-4960-a9f9-d38cc4ce83f9</Id>
+      <elemType>TransitionGUI</elemType>
+      <secondType />
+      <thirdType />
+      <fourthType />
+      <name>EstaEnDestino</name>
+      <windowPosX>565.5</windowPosX>
+      <windowPosY>312</windowPosY>
+      <isRandom>false</isRandom>
+      <isInfinite>false</isInfinite>
+      <delayTime>0</delayTime>
+      <Nloops>0</Nloops>
+      <index>0</index>
+      <variableMin>0</variableMin>
+      <variableMax>0</variableMax>
+      <slope>0</slope>
+      <exp>0</exp>
+      <displX>0</displX>
+      <displY>0</displY>
+      <fromId>159b3de3-e743-49ff-9ef4-fbf2374546aa</fromId>
+      <toId>370d5371-6010-48eb-bc94-e69f122ccbda</toId>
+      <perception>
+        <Id>6cca5240-97f4-463b-96a6-e9c2e3f964f0</Id>
+        <type>Value</type>
+        <timerNumber>0</timerNumber>
+        <elemName />
+        <customName>CustomName</customName>
+        <stateName>Select a State</stateName>
+        <status>Succeed</status>
+        <openFoldout>true</openFoldout>
+      </perception>
+      <weight>1</weight>
+      <isExit>false</isExit>
+    </XMLElement>
+  </transitions>
+  <isRandom>false</isRandom>
+  <isInfinite>false</isInfinite>
+  <delayTime>0</delayTime>
+  <Nloops>0</Nloops>
+  <index>0</index>
+  <variableMin>0</variableMin>
+  <variableMax>0</variableMax>
+  <slope>0</slope>
+  <exp>0</exp>
+  <displX>0</displX>
+  <displY>0</displY>
+  <weight>0</weight>
+  <isExit>false</isExit>
+</XMLElement>

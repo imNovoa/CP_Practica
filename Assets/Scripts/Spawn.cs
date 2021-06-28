@@ -5,6 +5,10 @@ using UnityEngine.AI;
 
 public class Spawn : MonoBehaviour
 {
+    public Spawn()
+    {
+
+    }
 
     public static int numAldeanos = 50;
     public GameObject Aldeano;
@@ -41,7 +45,7 @@ public class Spawn : MonoBehaviour
         return this.Aldeanos;
     }
 
-    private Vector3[] getPosiciones()
+    public Vector3[] getPosiciones()
     {
         /*for(int i = 0; i < numAldeanos; i++)
         {
