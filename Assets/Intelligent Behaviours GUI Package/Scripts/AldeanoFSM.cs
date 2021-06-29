@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+using ejemplo;
+
 public class AldeanoFSM : MonoBehaviour {
 
 
-    public static Spawn s = new Spawn();
+    //public static Spawn s = new Spawn();
 
     #region variables
 
@@ -19,7 +21,7 @@ public class AldeanoFSM : MonoBehaviour {
     private State Parado;
     private State Buscando;
     private State Avanzando;
-    private Vector3[] positions = s.getPosiciones(); 
+    private Vector3[] positions = Spawn.GetSpawnpoints();
     private NavMeshAgent Aldeano;
     private Vector3 destino = new Vector3(0,0,0);
     private float r;
@@ -41,11 +43,7 @@ public class AldeanoFSM : MonoBehaviour {
     
     private void CreateStateMachine()
     {
-        // Perceptions
-        // Modify or add new Perceptions, see the guide for more
-        ParadoBuscandoPerception = AldeanoFSM_FSM.CreatePerception<IsInStatePerception>(AldeanoFSM_FSM, "Parado");
-        BuscandoAvanzandoPerception = AldeanoFSM_FSM.CreatePerception<PushPerception>();
-        EstaEnDestinoPerception = AldeanoFSM_FSM.CreatePerception<ValuePerception>(() => Vector3.Distance(destino, Aldeano.transform.position) <= 1);
+        
         
         // States
         Parado = AldeanoFSM_FSM.CreateEntryState("Parado", ParadoAction);
@@ -56,7 +54,12 @@ public class AldeanoFSM : MonoBehaviour {
         AldeanoFSM_FSM.CreateTransition("Parado_Buscando", Parado, ParadoBuscandoPerception, Buscando);
         AldeanoFSM_FSM.CreateTransition("Buscando_Avanzando", Buscando, BuscandoAvanzandoPerception, Avanzando);
         AldeanoFSM_FSM.CreateTransition("EstaEnDestino", Avanzando, EstaEnDestinoPerception, Parado);
-        
+
+        // Perceptions
+        // Modify or add new Perceptions, see the guide for more
+        ParadoBuscandoPerception = AldeanoFSM_FSM.CreatePerception<IsInStatePerception>(AldeanoFSM_FSM, "Parado");
+        BuscandoAvanzandoPerception = AldeanoFSM_FSM.CreatePerception<PushPerception>();
+        EstaEnDestinoPerception = AldeanoFSM_FSM.CreatePerception<ValuePerception>(() => Vector3.Distance(destino, Aldeano.transform.position) <= 1);
         // ExitPerceptions
         
         // ExitTransitions
