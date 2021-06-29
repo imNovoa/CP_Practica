@@ -57,7 +57,7 @@ public class AldeanoFSM : MonoBehaviour {
 
         // Perceptions
         // Modify or add new Perceptions, see the guide for more
-        ParadoBuscandoPerception = AldeanoFSM_FSM.CreatePerception<IsInStatePerception>(AldeanoFSM_FSM, "Parado");
+        ParadoBuscandoPerception = AldeanoFSM_FSM.CreatePerception<IsInStatePerception>(AldeanoFSM_FSM, "Buscando");
         BuscandoAvanzandoPerception = AldeanoFSM_FSM.CreatePerception<PushPerception>();
         EstaEnDestinoPerception = AldeanoFSM_FSM.CreatePerception<ValuePerception>(() => Vector3.Distance(destino, Aldeano.transform.position) <= 1);
         // ExitPerceptions
