@@ -26,7 +26,6 @@ public class AldeanoFSM : MonoBehaviour {
     private NavMeshAgent Aldeano;
     private Vector3 destino = new Vector3(0,0,0);
     private int r;
-    private bool transicionesCreadas = false;
 
     //Place your variables here
 
@@ -64,8 +63,6 @@ public class AldeanoFSM : MonoBehaviour {
         AldeanoFSM_FSM.CreateTransition("Buscando_Avanzando", Buscando, BuscandoAvanzandoPerception, Avanzando);
         AldeanoFSM_FSM.CreateTransition("EstaEnDestino", Avanzando, EstaEnDestinoPerception, Parado);
 
-        transicionesCreadas = true;
-        
         // ExitTransitions
         
     }
