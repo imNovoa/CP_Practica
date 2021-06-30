@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - distrito1
+  - distrito2
+  - distrito3
+  - distrito4
+  - distrito5
+  - distrito6
   layers:
   - Default
   - TransparentFX

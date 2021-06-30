@@ -144,6 +144,8 @@
     <Compile Include="Assets\Intelligent Behaviours GUI Package\GUI Control\Styles.cs" />
     <Compile Include="Assets\Demo\FSM demo\Scripts\ChickenFSM.cs" />
     <Compile Include="Assets\Intelligent Behaviours GUI Package\Intelligent Behaviours Package\FSM API\State.cs" />
+    <Compile Include="Assets\Intelligent Behaviours GUI Package\Scripts\Guardia_B_FSM.cs" />
+    <Compile Include="Assets\Intelligent Behaviours GUI Package\Scripts\Guardia_A_FSM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

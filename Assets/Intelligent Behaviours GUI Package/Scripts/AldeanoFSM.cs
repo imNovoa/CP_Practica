@@ -26,6 +26,7 @@ public class AldeanoFSM : MonoBehaviour {
     private NavMeshAgent Aldeano;
     private Vector3 destino = new Vector3(0,0,0);
     private int r;
+    private int distrito;
 
     //Place your variables here
 
@@ -37,6 +38,7 @@ public class AldeanoFSM : MonoBehaviour {
         AldeanoFSM_FSM = new StateMachineEngine(false);
         r = Random.Range(0, 30);
         Aldeano = GetComponent<NavMeshAgent>();
+        
 
         CreateStateMachine();
     }
@@ -92,5 +94,34 @@ public class AldeanoFSM : MonoBehaviour {
     {
         
     }
+
     
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "distrito1") 
+        {
+            distrito = 0;
+        }else if (collision.gameObject.tag == "distrito2")
+        {
+            distrito = 1;
+        }
+        else if (collision.gameObject.tag == "distrito3")
+        {
+            distrito = 2;
+        }
+        else if (collision.gameObject.tag == "distrito4")
+        {
+            distrito = 3;
+        }
+        else if (collision.gameObject.tag == "distrito5")
+        {
+            distrito = 4;
+        } 
+        else if (collision.gameObject.tag == "distrito6")
+        {
+            distrito = 5;
+        }
+    }
+
 }

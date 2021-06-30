@@ -13,12 +13,18 @@ namespace ejemplo
         }
 
         public static int numAldeanos = 50;
+        public static int numGuardias = 6;
         public GameObject Aldeano;
+        public GameObject Guardia;
         private GameObject[] Aldeanos = new GameObject[numAldeanos];
-        private Vector3[] posSpawn = new Vector3[numAldeanos];
+        private GameObject[] Guardias = new GameObject[numGuardias];
+        private Vector3[] posSpawnAldeanos = new Vector3[numAldeanos];
+        private Vector3[] posSpawnGuardias = new Vector3[numGuardias];
+
 
         private static int districts = 6;
         private int[] villagers_per_district = new int[] { 8, 8, 8, 9, 8, 9};
+        private int[] guardias_per_district = new int[] { 1, 1, 1, 1, 1, 1 };
         private static int totalSpawnpoints = 4 + 3 + 4 + 6 + 6 + 8;
         private static Vector3[] spawnpoints = new Vector3[totalSpawnpoints];
         private int[] spawnpoints_per_district = new int[districts] ;
@@ -28,8 +34,10 @@ namespace ejemplo
         private void Awake()
         {
             GestionarSpawnpoints();
-            posSpawn = getPosiciones();
+            posSpawnAldeanos = getPosiciones();
+            posSpawnGuardias = getPosicionesGuardias();
             generarAldeanos();
+            generarGuardias();
         }
 
         // Start is called before the first frame update
@@ -86,6 +94,34 @@ namespace ejemplo
                 return final_spawnpoints;
         }
 
+        public Vector3[] getPosicionesGuardias()
+        {
+        
+            Vector3[] final_spawnpoints = new Vector3[numGuardias];
+
+
+            int spawnpoint_ini = 0;
+            int guardAct = 0;
+
+            for (int i = 0; i < districts; i++)
+            {
+                for (int j = 0; j < guardias_per_district[i]; j++)
+                {
+                    float r = Random.Range(spawnpoint_ini, spawnpoints_per_district[i]);
+                    Mathf.Round(r);
+
+                    final_spawnpoints[guardAct] = spawnpoints[(int)r];
+
+                    guardAct++;
+                }
+
+                spawnpoint_ini += spawnpoints_per_district[i];
+            }
+
+
+            return final_spawnpoints;
+        }
+
         private void generarAldeanos()
         {
             /*
@@ -100,16 +136,44 @@ namespace ejemplo
 
         
             Aldeanos[0] = this.Aldeano;
-            Aldeanos[0].transform.position = posSpawn[0];
+            Aldeanos[0].transform.position = posSpawnAldeanos[0];
 
 
             Quaternion spawnRotation = Quaternion.identity;
 
             for (int i = 1; i < numAldeanos; i++)
             {
-                Aldeanos[i] = Instantiate(Aldeano, posSpawn[i], spawnRotation);
+                Aldeanos[i] = Instantiate(Aldeano, posSpawnAldeanos[i], spawnRotation);
                 //Aldeanos[i].transform.position = posSpawn[i];
-                Debug.Log("Coordenadas de aldeano " + i + ": " + posSpawn[i]);
+                Debug.Log("Coordenadas de aldeano " + i + ": " + posSpawnAldeanos[i]);
+            }
+
+        }
+
+        private void generarGuardias()
+        {
+            /*
+            Aldeanos[0] = this.Aldeano;
+            for (int i = 1; i < numAldeanos; i++)
+            {
+                Aldeanos[i] = Instantiate(Aldeano);
+                //Aldeanos[i].transform.position = new Vector3(100, Aldeanos[i].transform.position.y, 200);
+                Aldeanos[i].transform.position = new Vector3(40, 0, 0);
+                //Aquí sería Aldeanos[i].transform.position = this.posSpawn[i]
+            }*/
+
+
+            Guardias[0] = this.Guardia;
+            Guardias[0].transform.position = posSpawnGuardias[0];
+
+
+            Quaternion spawnRotation = Quaternion.identity;
+
+            for (int i = 1; i < numGuardias; i++)
+            {
+                Guardias[i] = Instantiate(Guardia, posSpawnGuardias[i], spawnRotation);
+                //Aldeanos[i].transform.position = posSpawn[i];
+                Debug.Log("Coordenadas de guardia " + i + ": " + posSpawnGuardias[i]);
             }
 
         }
@@ -129,42 +193,42 @@ namespace ejemplo
             //Rellenamos cada spawnpoint:
 
             ///------------Dist 1
-            spawnpoints[0] = new Vector3(40, 20f, -12);
-            spawnpoints[1] = new Vector3(-2, 20f, -72);
-            spawnpoints[2] = new Vector3(-2, 20f, 47);
-            spawnpoints[3] = new Vector3(-42, 20f, -12);
+            spawnpoints[0] = new Vector3(40, 17.24f, -12);
+            spawnpoints[1] = new Vector3(1, 17.24f, -88);
+            spawnpoints[2] = new Vector3(-2, 17.24f, 47);
+            spawnpoints[3] = new Vector3(-42, 17.24f, -12);
             ///------------Dist 2
-            spawnpoints[4] = new Vector3(-122, 20f, -93);
-            spawnpoints[5] = new Vector3(-142, 20f, -12);
-            spawnpoints[6] = new Vector3(-122, 20f, 47);
+            spawnpoints[4] = new Vector3(-122, 17.24f, -93);
+            spawnpoints[5] = new Vector3(-142, 17.24f, -12);
+            spawnpoints[6] = new Vector3(-122, 17.24f, 47);
             ///------------Dist 3
-            spawnpoints[7] = new Vector3(-102, 20f, 87);
-            spawnpoints[8] = new Vector3(17, 20f, 107);
-            spawnpoints[9] = new Vector3(117, 20f, 107);
-            spawnpoints[10] = new Vector3(200, 20f, 107);
+            spawnpoints[7] = new Vector3(-102, 17.24f, 87);
+            spawnpoints[8] = new Vector3(17, 17.24f, 107);
+            spawnpoints[9] = new Vector3(117, 17.24f, 107);
+            spawnpoints[10] = new Vector3(200, 17.24f, 107);
             ///------------Dist 4
-            spawnpoints[11] = new Vector3(176, 20f, -192);
-            spawnpoints[12] = new Vector3(56, 20f, -212);
-            spawnpoints[13] = new Vector3(16, 20f, -152);
-            spawnpoints[14] = new Vector3(-83, 20f, -192);
-            spawnpoints[15] = new Vector3(-143, 20f, -192);
-            spawnpoints[16] = new Vector3(-163, 20f, -152);
+            spawnpoints[11] = new Vector3(176, 17.24f, -192);
+            spawnpoints[12] = new Vector3(56, 17.24f, -212);
+            spawnpoints[13] = new Vector3(16, 17.24f, -152);
+            spawnpoints[14] = new Vector3(-83, 17.24f, -192);
+            spawnpoints[15] = new Vector3(-143, 17.24f, -192);
+            spawnpoints[16] = new Vector3(-163, 17.24f, -152);
             ///------------Dist 5
-            spawnpoints[17] = new Vector3(197, 20f, 247);
-            spawnpoints[18] = new Vector3(137, 20f, 247);
-            spawnpoints[19] = new Vector3(17, 20f, 247);
-            spawnpoints[20] = new Vector3(-102, 20f, 227);
-            spawnpoints[21] = new Vector3(-282, 20f, 247);
-            spawnpoints[22] = new Vector3(-262, 20f, 147);
+            spawnpoints[17] = new Vector3(197, 17.24f, 247);
+            spawnpoints[18] = new Vector3(137, 17.24f, 247);
+            spawnpoints[19] = new Vector3(17, 17.24f, 247);
+            spawnpoints[20] = new Vector3(-102, 17.24f, 227);
+            spawnpoints[21] = new Vector3(-282, 17.24f, 247);
+            spawnpoints[22] = new Vector3(-262, 17.24f, 147);
             ///------------Dist 6
-            spawnpoints[23] = new Vector3(-102, 20f, -332);
-            spawnpoints[24] = new Vector3(-62, 20f, -292);
-            spawnpoints[25] = new Vector3(-362, 20f, -192);
-            spawnpoints[26] = new Vector3(-202, 20f, -252);
-            spawnpoints[27] = new Vector3(-222, 20f, 7);
-            spawnpoints[28] = new Vector3(-242, 20f, 67);
-            spawnpoints[29] = new Vector3(-222, 20f, -92);
-            spawnpoints[30] = new Vector3(-342, 20f, -32);
+            spawnpoints[23] = new Vector3(-102, 17.24f, -332);
+            spawnpoints[24] = new Vector3(-62, 17.24f, -292);
+            spawnpoints[25] = new Vector3(-362, 17.24f, -192);
+            spawnpoints[26] = new Vector3(-202, 17.24f, -252);
+            spawnpoints[27] = new Vector3(-222, 17.24f, 7);
+            spawnpoints[28] = new Vector3(-242, 17.24f, 67);
+            spawnpoints[29] = new Vector3(-222, 17.24f, -92);
+            spawnpoints[30] = new Vector3(-342, 17.24f, -32);
         }
 
 
