@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.Random;
 
 using ejemplo;
 
@@ -24,7 +25,8 @@ public class AldeanoFSM : MonoBehaviour {
     private Vector3[] positions = Spawn.GetSpawnpoints();
     private NavMeshAgent Aldeano;
     private Vector3 destino = new Vector3(0,0,0);
-    private float r;
+    private int r;
+    private bool transicionesCreadas = false;
 
     //Place your variables here
 
@@ -49,18 +51,20 @@ public class AldeanoFSM : MonoBehaviour {
         Parado = AldeanoFSM_FSM.CreateEntryState("Parado", ParadoAction);
         Buscando = AldeanoFSM_FSM.CreateState("Buscando", BuscandoAction);
         Avanzando = AldeanoFSM_FSM.CreateState("Avanzando", AvanzandoAction);
-        
+
+        // Perceptions
+        // Modify or add new Perceptions, see the guide for more
+        ParadoBuscandoPerception = AldeanoFSM_FSM.CreatePerception<IsInStatePerception>(AldeanoFSM_FSM, "Parado");
+        BuscandoAvanzandoPerception = AldeanoFSM_FSM.CreatePerception<PushPerception>();
+        EstaEnDestinoPerception = AldeanoFSM_FSM.CreatePerception<ValuePerception>(() => Vector3.Distance(destino, Aldeano.transform.position) <= 5.0f);
+        // ExitPerceptions
+
         // Transitions
         AldeanoFSM_FSM.CreateTransition("Parado_Buscando", Parado, ParadoBuscandoPerception, Buscando);
         AldeanoFSM_FSM.CreateTransition("Buscando_Avanzando", Buscando, BuscandoAvanzandoPerception, Avanzando);
         AldeanoFSM_FSM.CreateTransition("EstaEnDestino", Avanzando, EstaEnDestinoPerception, Parado);
 
-        // Perceptions
-        // Modify or add new Perceptions, see the guide for more
-        ParadoBuscandoPerception = AldeanoFSM_FSM.CreatePerception<IsInStatePerception>(AldeanoFSM_FSM, "Buscando");
-        BuscandoAvanzandoPerception = AldeanoFSM_FSM.CreatePerception<PushPerception>();
-        EstaEnDestinoPerception = AldeanoFSM_FSM.CreatePerception<ValuePerception>(() => Vector3.Distance(destino, Aldeano.transform.position) <= 1);
-        // ExitPerceptions
+        transicionesCreadas = true;
         
         // ExitTransitions
         
@@ -81,10 +85,10 @@ public class AldeanoFSM : MonoBehaviour {
     
     private void BuscandoAction()
     {
-        
-        Mathf.Round(r);
-        destino = positions[(int)r];
+        r = Random.Range(0, 30);
+        destino = positions[r];
         Aldeano.SetDestination(destino);
+        AldeanoFSM_FSM.Fire("Buscando_Avanzando");
     }
     
     private void AvanzandoAction()
