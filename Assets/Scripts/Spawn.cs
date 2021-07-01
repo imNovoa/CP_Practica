@@ -22,8 +22,8 @@ namespace ejemplo
         private Vector3[] posSpawnAldeanos = new Vector3[numAldeanos];
         private Vector3[] posSpawnGuardiasA = new Vector3[numGuardiasA];
 
-        private Vector3[] formacionGuardias = new Vector3[grupoGuardias];
-        private Vector3[] puestosGuardias = new Vector3[12];
+        private static Vector3[] formacionGuardias = new Vector3[grupoGuardias];
+        private static Vector3[] puestosGuardias = new Vector3[12];
 
 
         private static int districts = 6;
@@ -34,6 +34,7 @@ namespace ejemplo
         private int[] spawnpoints_per_district = new int[districts] ;
 
         public static Vector3[] GetSpawnpoints () { return spawnpoints; }
+        public static Vector3[] GetFormaciones() { return puestosGuardias; }
 
         private void Awake()
         {
@@ -106,21 +107,15 @@ namespace ejemplo
 
 
             int spawnpoint_ini = 0;
-            int guardAct = 0;
 
-            for (int i = 0; i < districts; i++)
+            for (int i = 0; i < numGuardiasA; i++)
             {
-                for (int j = 0; j < guardias_per_district[i]; j++)
-                {
-                    float r = Random.Range(spawnpoint_ini, spawnpoints_per_district[i]);
+                
+                    float r = Random.Range(spawnpoint_ini, totalSpawnpoints);
                     Mathf.Round(r);
 
-                    final_spawnpoints[guardAct] = spawnpoints[(int)r];
+                    final_spawnpoints[i] = spawnpoints[(int)r];
 
-                    guardAct++;
-                }
-
-                spawnpoint_ini += spawnpoints_per_district[i];
             }
 
 
