@@ -10,7 +10,7 @@ public class Guardia_A_FSM : MonoBehaviour {
 
 
     //public static Spawn s = new Spawn();
-
+    private Vector3[] posGuardia;
     #region variables
 
     private StateMachineEngine GuardiaFSM_FSM;
@@ -93,5 +93,13 @@ public class Guardia_A_FSM : MonoBehaviour {
     {
         
     }
-    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "distrito1")
+        {
+            ;
+        }
+    }
+
 }

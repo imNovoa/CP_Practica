@@ -13,13 +13,17 @@ namespace ejemplo
         }
 
         public static int numAldeanos = 50;
-        public static int numGuardias = 6;
+        public static int numGuardiasA = 12;
+        public static int grupoGuardias = 6;
         public GameObject Aldeano;
         public GameObject Guardia;
         private GameObject[] Aldeanos = new GameObject[numAldeanos];
-        private GameObject[] Guardias = new GameObject[numGuardias];
+        private GameObject[] Guardias = new GameObject[numGuardiasA];
         private Vector3[] posSpawnAldeanos = new Vector3[numAldeanos];
-        private Vector3[] posSpawnGuardias = new Vector3[numGuardias];
+        private Vector3[] posSpawnGuardiasA = new Vector3[numGuardiasA];
+
+        private Vector3[] formacionGuardias = new Vector3[grupoGuardias];
+        private Vector3[] puestosGuardias = new Vector3[12];
 
 
         private static int districts = 6;
@@ -34,8 +38,9 @@ namespace ejemplo
         private void Awake()
         {
             GestionarSpawnpoints();
+            GestionarPuestosDeGuardia();
             posSpawnAldeanos = getPosiciones();
-            posSpawnGuardias = getPosicionesGuardias();
+            posSpawnGuardiasA = getPosicionesGuardias();
             generarAldeanos();
             generarGuardias();
         }
@@ -97,7 +102,7 @@ namespace ejemplo
         public Vector3[] getPosicionesGuardias()
         {
         
-            Vector3[] final_spawnpoints = new Vector3[numGuardias];
+            Vector3[] final_spawnpoints = new Vector3[numGuardiasA];
 
 
             int spawnpoint_ini = 0;
@@ -152,28 +157,19 @@ namespace ejemplo
 
         private void generarGuardias()
         {
-            /*
-            Aldeanos[0] = this.Aldeano;
-            for (int i = 1; i < numAldeanos; i++)
-            {
-                Aldeanos[i] = Instantiate(Aldeano);
-                //Aldeanos[i].transform.position = new Vector3(100, Aldeanos[i].transform.position.y, 200);
-                Aldeanos[i].transform.position = new Vector3(40, 0, 0);
-                //Aquí sería Aldeanos[i].transform.position = this.posSpawn[i]
-            }*/
 
 
             Guardias[0] = this.Guardia;
-            Guardias[0].transform.position = posSpawnGuardias[0];
+            Guardias[0].transform.position = posSpawnGuardiasA[0];
 
 
             Quaternion spawnRotation = Quaternion.identity;
 
-            for (int i = 1; i < numGuardias; i++)
+            for (int i = 1; i < numGuardiasA; i++)
             {
-                Guardias[i] = Instantiate(Guardia, posSpawnGuardias[i], spawnRotation);
+                Guardias[i] = Instantiate(Guardia, posSpawnGuardiasA[i], spawnRotation);
                 //Aldeanos[i].transform.position = posSpawn[i];
-                Debug.Log("Coordenadas de guardia " + i + ": " + posSpawnGuardias[i]);
+                Debug.Log("Coordenadas de guardia " + i + ": " + posSpawnGuardiasA[i]);
             }
 
         }
@@ -229,6 +225,32 @@ namespace ejemplo
             spawnpoints[28] = new Vector3(-242, 17.24f, 67);
             spawnpoints[29] = new Vector3(-222, 17.24f, -92);
             spawnpoints[30] = new Vector3(-342, 17.24f, -32);
+        }
+
+        private void GestionarPuestosDeGuardia()
+        {
+
+            //Rellenamos el array de puestos de guardia
+            puestosGuardias[0] = new Vector3(-162.4778f, 17.24f, -332.3943f);
+            puestosGuardias[1] = new Vector3(57.57729f, 17.24f, 7.179901f);
+            puestosGuardias[2] = new Vector3(57.57729f, 17.24f, -12.8201f);
+            puestosGuardias[3] = new Vector3(-62.41888f, 17.24f, -12.8201f);
+            puestosGuardias[4] = new Vector3(-182.4795f, 17.24f, 147.1627f);
+            puestosGuardias[5] = new Vector3(37.52045f, 17.24f, 167.1627f);
+            puestosGuardias[6] = new Vector3(217.5205f, 17.24f, 167.1632f);
+            puestosGuardias[7] = new Vector3(-122.4793f, 17.24f, 67.16287f);
+            puestosGuardias[8] = new Vector3(-143.1945f, 17.24f, -132.6317f);
+            puestosGuardias[9] = new Vector3(57.52056f, 17.24f, 247.0628f);
+            puestosGuardias[10] = new Vector3(-182.4783f, 17.24f, -152.8943f);
+            puestosGuardias[11] = new Vector3(-282.479f, 17.24f, 87.10536f);
+
+            //Rellenamos el array de puestos de formacion
+            formacionGuardias[0] = new Vector3(-302.4785f, 17.24f, -112.8947f);
+            formacionGuardias[1] = new Vector3(-302.4783f, 17.24f, -152.8947f);
+            formacionGuardias[2] = new Vector3(-262.4783f, 17.24f, -152.8947f);
+            formacionGuardias[3] = new Vector3(-282.4783f, 17.24f, -172.8946f);
+            formacionGuardias[4] = new Vector3(-262.4785f, 17.24f, -112.8946f);
+            formacionGuardias[5] = new Vector3(-282.4784f, 17.24f, -132.8946f);
         }
 
 

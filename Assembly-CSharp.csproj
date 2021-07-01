@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\FreeCam.cs" />
     <Compile Include="Assets\Intelligent Behaviours GUI Package\Intelligent Behaviours Package\Utility curves API\Curve.cs" />
     <Compile Include="Assets\Intelligent Behaviours GUI Package\GUI Control\BaseNode.cs" />
+    <Compile Include="Assets\Intelligent Behaviours GUI Package\Scripts\Guardia_A_FSM.cs" />
     <Compile Include="Assets\Demo\FSM demo\Scripts\TestBoyFSM.cs" />
     <Compile Include="Assets\Demo\Hierarchical FSM demo\Scripts\DetectCar.cs" />
     <Compile Include="Assets\Intelligent Behaviours GUI Package\Intelligent Behaviours Package\Utility curves API\Factor.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Assets\Intelligent Behaviours GUI Package\Intelligent Behaviours Package\BehaviourEngine.cs" />
     <Compile Include="Assets\Intelligent Behaviours GUI Package\Intelligent Behaviours Package\Utility curves API\MinFusion.cs" />
     <Compile Include="Assets\Intelligent Behaviours GUI Package\Intelligent Behaviours Package\Perceptions\BehaviourTreeStatusPerception.cs" />
+    <Compile Include="Assets\Intelligent Behaviours GUI Package\Scripts\Guardia_B_FSM.cs" />
     <Compile Include="Assets\Intelligent Behaviours GUI Package\Scripts\AldeanoFSM.cs" />
     <Compile Include="Assets\Demo\Behaviour Tree demo\Scripts\TestBoyBT.cs" />
     <Compile Include="Assets\Demo\Behaviour Tree demo\Scripts\DestroyEffect.cs" />
@@ -144,8 +146,6 @@
     <Compile Include="Assets\Intelligent Behaviours GUI Package\GUI Control\Styles.cs" />
     <Compile Include="Assets\Demo\FSM demo\Scripts\ChickenFSM.cs" />
     <Compile Include="Assets\Intelligent Behaviours GUI Package\Intelligent Behaviours Package\FSM API\State.cs" />
-    <Compile Include="Assets\Intelligent Behaviours GUI Package\Scripts\Guardia_B_FSM.cs" />
-    <Compile Include="Assets\Intelligent Behaviours GUI Package\Scripts\Guardia_A_FSM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -156,6 +156,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Intelligent Behaviours GUI Package\Saves\AldeanoFSM_savedData.xml" />
+    <None Include="Assets\Text&amp;Shad\PlanosShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />

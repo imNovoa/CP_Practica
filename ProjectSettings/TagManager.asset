@@ -10,6 +10,10 @@ TagManager:
   - distrito4
   - distrito5
   - distrito6
+  - midday
+  - midnight
+  - dawn
+  - noon
   layers:
   - Default
   - TransparentFX
