@@ -49,7 +49,7 @@ namespace ejemplo
         // Start is called before the first frame update
         void Start()
         {
-        
+            Globales.distritos[0] = false;
         }
 
         // Update is called once per frame
@@ -145,7 +145,6 @@ namespace ejemplo
             {
                 Aldeanos[i] = Instantiate(Aldeano, posSpawnAldeanos[i], spawnRotation);
                 //Aldeanos[i].transform.position = posSpawn[i];
-                Debug.Log("Coordenadas de aldeano " + i + ": " + posSpawnAldeanos[i]);
             }
 
         }
@@ -164,7 +163,6 @@ namespace ejemplo
             {
                 Guardias[i] = Instantiate(Guardia, posSpawnGuardiasA[i], spawnRotation);
                 //Aldeanos[i].transform.position = posSpawn[i];
-                Debug.Log("Coordenadas de guardia " + i + ": " + posSpawnGuardiasA[i]);
             }
 
         }
@@ -184,68 +182,68 @@ namespace ejemplo
             //Rellenamos cada spawnpoint:
 
             ///------------Dist 1
-            spawnpoints[0] = new Vector3(40, 17.24f, -12);
-            spawnpoints[1] = new Vector3(1, 17.24f, -88);
-            spawnpoints[2] = new Vector3(-2, 17.24f, 47);
-            spawnpoints[3] = new Vector3(-42, 17.24f, -12);
+            spawnpoints[0] = new Vector3(40, 18.39f, -12);
+            spawnpoints[1] = new Vector3(1, 18.39f, -88);
+            spawnpoints[2] = new Vector3(-2, 18.39f, 47);
+            spawnpoints[3] = new Vector3(-42, 18.39f, -12);
             ///------------Dist 2
-            spawnpoints[4] = new Vector3(-122, 17.24f, -93);
-            spawnpoints[5] = new Vector3(-142, 17.24f, -12);
-            spawnpoints[6] = new Vector3(-122, 17.24f, 47);
+            spawnpoints[4] = new Vector3(-122, 18.39f, -93);
+            spawnpoints[5] = new Vector3(-142, 18.39f, -12);
+            spawnpoints[6] = new Vector3(-122, 18.39f, 47);
             ///------------Dist 3
-            spawnpoints[7] = new Vector3(-102, 17.24f, 87);
-            spawnpoints[8] = new Vector3(17, 17.24f, 107);
-            spawnpoints[9] = new Vector3(117, 17.24f, 107);
-            spawnpoints[10] = new Vector3(200, 17.24f, 107);
+            spawnpoints[7] = new Vector3(-102, 18.39f, 87);
+            spawnpoints[8] = new Vector3(17, 18.39f, 107);
+            spawnpoints[9] = new Vector3(117, 18.39f, 107);
+            spawnpoints[10] = new Vector3(200, 18.39f, 107);
             ///------------Dist 4
-            spawnpoints[11] = new Vector3(176, 17.24f, -192);
-            spawnpoints[12] = new Vector3(56, 17.24f, -212);
-            spawnpoints[13] = new Vector3(16, 17.24f, -152);
-            spawnpoints[14] = new Vector3(-83, 17.24f, -192);
-            spawnpoints[15] = new Vector3(-143, 17.24f, -192);
-            spawnpoints[16] = new Vector3(-163, 17.24f, -152);
+            spawnpoints[11] = new Vector3(176, 18.39f, -192);
+            spawnpoints[12] = new Vector3(56, 18.39f, -212);
+            spawnpoints[13] = new Vector3(16, 18.39f, -152);
+            spawnpoints[14] = new Vector3(-83, 18.39f, -192);
+            spawnpoints[15] = new Vector3(-143, 18.39f, -192);
+            spawnpoints[16] = new Vector3(-163, 18.39f, -152);
             ///------------Dist 5
-            spawnpoints[17] = new Vector3(197, 17.24f, 247);
-            spawnpoints[18] = new Vector3(137, 17.24f, 247);
-            spawnpoints[19] = new Vector3(17, 17.24f, 247);
-            spawnpoints[20] = new Vector3(-102, 17.24f, 227);
-            spawnpoints[21] = new Vector3(-282, 17.24f, 247);
-            spawnpoints[22] = new Vector3(-262, 17.24f, 147);
+            spawnpoints[17] = new Vector3(197, 18.39f, 247);
+            spawnpoints[18] = new Vector3(137, 18.39f, 247);
+            spawnpoints[19] = new Vector3(17, 18.39f, 247);
+            spawnpoints[20] = new Vector3(-102, 18.39f, 227);
+            spawnpoints[21] = new Vector3(-282, 18.39f, 247);
+            spawnpoints[22] = new Vector3(-262, 18.39f, 147);
             ///------------Dist 6
-            spawnpoints[23] = new Vector3(-102, 17.24f, -332);
-            spawnpoints[24] = new Vector3(-62, 17.24f, -292);
-            spawnpoints[25] = new Vector3(-362, 17.24f, -192);
-            spawnpoints[26] = new Vector3(-202, 17.24f, -252);
-            spawnpoints[27] = new Vector3(-222, 17.24f, 7);
-            spawnpoints[28] = new Vector3(-242, 17.24f, 67);
-            spawnpoints[29] = new Vector3(-222, 17.24f, -92);
-            spawnpoints[30] = new Vector3(-342, 17.24f, -32);
+            spawnpoints[23] = new Vector3(-102, 18.39f, -332);
+            spawnpoints[24] = new Vector3(-62, 18.39f, -292);
+            spawnpoints[25] = new Vector3(-362, 18.39f, -192);
+            spawnpoints[26] = new Vector3(-202, 18.39f, -252);
+            spawnpoints[27] = new Vector3(-222, 18.39f, 7);
+            spawnpoints[28] = new Vector3(-242, 18.39f, 67);
+            spawnpoints[29] = new Vector3(-222, 18.39f, -92);
+            spawnpoints[30] = new Vector3(-342, 18.39f, -32);
         }
 
         private void GestionarPuestosDeGuardia()
         {
 
             //Rellenamos el array de puestos de guardia
-            puestosGuardias[0] = new Vector3(-162.4778f, 17.24f, -332.3943f);
-            puestosGuardias[1] = new Vector3(57.57729f, 17.24f, 7.179901f);
-            puestosGuardias[2] = new Vector3(57.57729f, 17.24f, -12.8201f);
-            puestosGuardias[3] = new Vector3(-62.41888f, 17.24f, -12.8201f);
-            puestosGuardias[4] = new Vector3(-182.4795f, 17.24f, 147.1627f);
-            puestosGuardias[5] = new Vector3(37.52045f, 17.24f, 167.1627f);
-            puestosGuardias[6] = new Vector3(217.5205f, 17.24f, 167.1632f);
-            puestosGuardias[7] = new Vector3(-122.4793f, 17.24f, 67.16287f);
-            puestosGuardias[8] = new Vector3(-143.1945f, 17.24f, -132.6317f);
-            puestosGuardias[9] = new Vector3(57.52056f, 17.24f, 247.0628f);
-            puestosGuardias[10] = new Vector3(-182.4783f, 17.24f, -152.8943f);
-            puestosGuardias[11] = new Vector3(-282.479f, 17.24f, 87.10536f);
+            puestosGuardias[0] = new Vector3(-162.4778f, 18.39f, -332.3943f);
+            puestosGuardias[1] = new Vector3(57.57729f, 18.39f, 7.179901f);
+            puestosGuardias[2] = new Vector3(57.57729f, 18.39f, -12.8201f);
+            puestosGuardias[3] = new Vector3(-62.41888f, 18.39f, -12.8201f);
+            puestosGuardias[4] = new Vector3(-182.4795f, 18.39f, 147.1627f);
+            puestosGuardias[5] = new Vector3(37.52045f, 18.39f, 167.1627f);
+            puestosGuardias[6] = new Vector3(217.5205f, 18.39f, 167.1632f);
+            puestosGuardias[7] = new Vector3(-122.4793f, 18.39f, 67.16287f);
+            puestosGuardias[8] = new Vector3(-143.1945f, 18.39f, -132.6317f);
+            puestosGuardias[9] = new Vector3(57.52056f, 18.39f, 247.0628f);
+            puestosGuardias[10] = new Vector3(-182.4783f, 18.39f, -152.8943f);
+            puestosGuardias[11] = new Vector3(-282.479f, 18.39f, 87.10536f);
 
             //Rellenamos el array de puestos de formacion
-            formacionGuardias[0] = new Vector3(-302.4785f, 17.24f, -112.8947f);
-            formacionGuardias[1] = new Vector3(-302.4783f, 17.24f, -152.8947f);
-            formacionGuardias[2] = new Vector3(-262.4783f, 17.24f, -152.8947f);
-            formacionGuardias[3] = new Vector3(-282.4783f, 17.24f, -172.8946f);
-            formacionGuardias[4] = new Vector3(-262.4785f, 17.24f, -112.8946f);
-            formacionGuardias[5] = new Vector3(-282.4784f, 17.24f, -132.8946f);
+            formacionGuardias[0] = new Vector3(-302.4785f, 18.39f, -112.8947f);
+            formacionGuardias[1] = new Vector3(-302.4783f, 18.39f, -152.8947f);
+            formacionGuardias[2] = new Vector3(-262.4783f, 18.39f, -152.8947f);
+            formacionGuardias[3] = new Vector3(-282.4783f, 18.39f, -172.8946f);
+            formacionGuardias[4] = new Vector3(-262.4785f, 18.39f, -112.8946f);
+            formacionGuardias[5] = new Vector3(-282.4784f, 18.39f, -132.8946f);
         }
 
 

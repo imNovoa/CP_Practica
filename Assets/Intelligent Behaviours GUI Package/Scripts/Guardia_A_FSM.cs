@@ -70,7 +70,7 @@ public class Guardia_A_FSM : MonoBehaviour {
         // Modify or add new Perceptions, see the guide for more
         ParadoBuscandoPerception = GuardiaFSM_FSM.CreatePerception<IsInStatePerception>(GuardiaFSM_FSM, "Parado");
         BuscandoAvanzandoPerception = GuardiaFSM_FSM.CreatePerception<PushPerception>();
-        EstaEnDestinoPerception = GuardiaFSM_FSM.CreatePerception<ValuePerception>(() => Vector3.Distance(destino, Guardia.transform.position) <= 5.0f);
+        EstaEnDestinoPerception = GuardiaFSM_FSM.CreatePerception<ValuePerception>(() => Vector3.Distance(destino, Guardia.transform.position) <= 10.0f);
 
         AFormarPerception = GuardiaFSM_FSM.CreatePerception<ValuePerception>(() => midday);
         ARomperFormacionPerception = GuardiaFSM_FSM.CreatePerception<ValuePerception>(() => !midday);
