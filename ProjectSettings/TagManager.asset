@@ -15,6 +15,13 @@ TagManager:
   - dawn
   - noon
   - guardiavision
+  - aldeanovision
+  - zombievision
+  - brujavision
+  - aldeano
+  - bruja
+  - zombi
+  - Guardia
   layers:
   - Default
   - TransparentFX
