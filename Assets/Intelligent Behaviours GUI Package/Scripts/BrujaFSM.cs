@@ -76,7 +76,7 @@ public class BrujaFSM : MonoBehaviour
         ParadoBuscandoPerception = BrujaFSM_FSM.CreatePerception<IsInStatePerception>(BrujaFSM_FSM, "Parado");
         BuscandoAvanzandoPerception = BrujaFSM_FSM.CreatePerception<PushPerception>();
         SpawnearZombiePerception = BrujaFSM_FSM.CreatePerception<PushPerception>();
-        CooldownPerception = BrujaFSM_FSM.CreatePerception<TimerPerception>(3);
+        CooldownPerception = BrujaFSM_FSM.CreatePerception<TimerPerception>(30);
         EstaEnDestinoPerception = BrujaFSM_FSM.CreatePerception<ValuePerception>(() => Vector3.Distance(destino, Bruja.transform.position) <= 10.0f);
 
         // ExitPerceptions
@@ -103,23 +103,24 @@ public class BrujaFSM : MonoBehaviour
 
     private void BuscandoAction()
     {
-        porcentajeSpawn = Random.Range(0, 100);
-        if (porcentajeSpawn < 70)
+        //porcentajeSpawn = Random.Range(0, 100);
+        /*if (porcentajeSpawn < 70)*/
         {
             r = Random.Range(0, 30);
             destino = positions[r];
             Bruja.SetDestination(destino);
             BrujaFSM_FSM.Fire("Buscando_Avanzando");
         }
-        else
+        /*else
         {
             BrujaFSM_FSM.Fire("Buscando_Spawnear");
-        }
+        }*/
     }
 
     private void SpawnearZombieAction()
     {
-        Quaternion spawnRotation = Quaternion.identity;
+        //Quaternion spawnRotation = Quaternion.identity;
+        Quaternion spawnRotation = this.transform.rotation;
         zombie = Instantiate(zombieOriginal, this.transform.position, spawnRotation);
         zombie.SetActive(true);
     }

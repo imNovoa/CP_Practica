@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using ejemplo;
 
 
-    public class Ciclo : MonoBehaviour
+public class Ciclo : MonoBehaviour
     {
         public Ciclo() { }
 
@@ -67,6 +68,7 @@ using System;
             else if (Globales.horaActual <= 21.30f)
             {
                 noonPlane.transform.position = new Vector3(-4.180901f, 18.1f, -74.245f);
+                
             }
             else
             {

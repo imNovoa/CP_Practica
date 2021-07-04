@@ -69,7 +69,7 @@ public class ZombiFSM : MonoBehaviour
         VictimaMuertaPerception = ZombiFSM_FSM.CreatePerception<ValuePerception>(() => Vector3.Distance(destino, Zombi.transform.position) <= 10.0f && estaPersiguiendo);
         VictimaEscapaPerception = ZombiFSM_FSM.CreatePerception<ValuePerception>(() => victimaRenderer.enabled == false); //Comprobar si el mesh renderer del objetivo está desactivado
         HaDescansadoPerception = ZombiFSM_FSM.CreatePerception<PushPerception>();
-        RecargandoPerception = ZombiFSM_FSM.CreatePerception<TimerPerception>(15);
+        RecargandoPerception = ZombiFSM_FSM.CreatePerception<TimerPerception>(2);
 
         // Transitions
         ZombiFSM_FSM.CreateTransition("Parado_Buscando", Parado, ParadoBuscandoPerception, Buscando);

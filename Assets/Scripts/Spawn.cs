@@ -15,12 +15,16 @@ namespace ejemplo
         public static int numAldeanos = 50;
         public static int numGuardiasA = 12;
         public static int grupoGuardias = 6;
+        public static int numZombies = 10;
         public GameObject Aldeano;
         public GameObject Guardia;
+        public GameObject Zombie;
         private GameObject[] Aldeanos = new GameObject[numAldeanos];
         private GameObject[] Guardias = new GameObject[numGuardiasA];
+        private GameObject[] Zombies = new GameObject[numZombies];
         private Vector3[] posSpawnAldeanos = new Vector3[numAldeanos];
         private Vector3[] posSpawnGuardiasA = new Vector3[numGuardiasA];
+        private Vector3[] posSpawnZombies = new Vector3[3];
 
         private static Vector3[] formacionGuardias = new Vector3[grupoGuardias];
         private static Vector3[] puestosGuardias = new Vector3[12];
@@ -44,6 +48,7 @@ namespace ejemplo
             posSpawnGuardiasA = getPosicionesGuardias();
             generarAldeanos();
             generarGuardias();
+            spawnearZombies();
         }
 
         // Start is called before the first frame update
@@ -121,6 +126,27 @@ namespace ejemplo
 
             return final_spawnpoints;
         }
+
+        public void spawnearZombies()
+        {
+            float r = Random.Range(0, 2);
+            Mathf.Round(r);
+
+            Zombies[0] = this.Zombie;
+            Zombies[0].transform.position = posSpawnZombies[(int)r];
+
+
+            Quaternion spawnRotation = Quaternion.identity;
+
+           
+            for (int i = 0; i < numZombies; i++)
+            {
+                r = Random.Range(0, 2);
+                Mathf.Round(r);
+                Zombies[i] = Instantiate(Zombie, posSpawnZombies[(int)r], spawnRotation);
+            }
+        }
+
 
         private void generarAldeanos()
         {
@@ -218,6 +244,10 @@ namespace ejemplo
             spawnpoints[28] = new Vector3(-242, 18.39f, 67);
             spawnpoints[29] = new Vector3(-222, 18.39f, -92);
             spawnpoints[30] = new Vector3(-342, 18.39f, -32);
+
+            posSpawnZombies[0] = new Vector3(-380.10f, 19.0f, -142.89f);
+            posSpawnZombies[1] = new Vector3(-380.10f, 19.0f, -162.89f);
+            posSpawnZombies[2] = new Vector3(-380.10f, 19.0f, -182.89f);
         }
 
         private void GestionarPuestosDeGuardia()
